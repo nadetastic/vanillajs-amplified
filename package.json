@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amazon-cognito-identity-js": "^6.1.2"
+    "aws-amplify": "^5.0.10"
   },
   "devDependencies": {
     "webpack-cli": "^5.0.1"
