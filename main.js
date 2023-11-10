@@ -1,0 +1,25 @@
+import { Amplify } from 'aws-amplify';
+import { generateClient } from 'aws-amplify/api';
+
+// import awsconfig from './aws-exports';
+// import { createTodo } from './graphql/mutations';
+
+// Amplify.configure(awsconfig);
+
+async function createNewTodo() {
+  const todo = {
+    name: 'Use AppSync',
+    description: `Realtime and Offline (${new Date().toLocaleString()})`
+  };
+
+  return await API.graphql(graphqlOperation(createTodo, { input: todo }));
+}
+
+const MutationButton = document.getElementById('MutationEventButton');
+const MutationResult = document.getElementById('MutationResult');
+
+MutationButton.addEventListener('click', (evt) => {
+  createNewTodo().then((evt) => {
+    MutationResult.innerHTML += `<p>${evt.data.createTodo.name} - ${evt.data.createTodo.description}</p>`;
+  });
+});
